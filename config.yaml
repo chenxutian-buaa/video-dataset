@@ -1,0 +1,70 @@
+    # Project definitions (do not edit)
+Task: DLC_rat
+scorer: '6'
+date: Jan24
+multianimalproject: true
+identity: false
+
+    # Project path (change when moving around)
+project_path: D:\DeepLabVideo\DLC_rat-6-2025-01-24
+
+    # Annotation data set configuration (and individual video cropping parameters)
+video_sets:
+  D:\projects\rat\DLC_rat-6-2025-01-24\videos\24.mp4:
+    crop: 0, 1920, 0, 1080
+individuals:
+- individual1
+- individual2
+uniquebodyparts: []
+multianimalbodyparts:
+- top
+- body
+- tail
+- tail-m
+- tail-e
+skeleton:
+- - top
+  - body
+- - body
+  - tail
+- - top
+  - tail
+bodyparts: MULTI!
+start: 0
+stop: 1
+numframes2pick: 1000
+
+    # Plotting configuration
+skeleton_color: black
+pcutoff: 0.6
+dotsize: 12
+alphavalue: 0.7
+colormap: rainbow
+
+    # Training,Evaluation and Analysis configuration
+TrainingFraction:
+- 0.95
+iteration: 0
+default_net_type: dlcrnet_ms5
+default_augmenter: multi-animal-imgaug
+default_track_method: ellipse
+snapshotindex: -1
+batch_size: 4
+
+    # Cropping Parameters (for analysis and outlier frame detection)
+cropping: false
+    #if cropping is true for analysis, then set the values here:
+x1: 0
+x2: 640
+y1: 277
+y2: 624
+
+    # Refinement configuration (parameters from annotation dataset configuration also relevant in this stage)
+corner2move2:
+- 50
+- 50
+move2corner: true
+engine: pytorch
+detector_snapshotindex: -1
+SuperAnimalConversionTables:
+detector_batch_size: 1
